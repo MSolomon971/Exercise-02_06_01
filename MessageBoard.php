@@ -39,9 +39,8 @@ MessageBoard.php
                 $newMessages = implode($messageArray);
                 $fileHandle = fopen("messages.txt", "wb");
                 if (!$fileHandle) {
-//                    echo "There was an error updating the message file.\n"; 
-                    $index = $_GET['message'];
-                    unset($messageArray[$index]);
+                    echo "There was an error updating the message file.\n"; 
+                    $messageArray = array_values($messageArray);
                 }
                 else {
                 fwrite($fileHandle, $newMessages);
